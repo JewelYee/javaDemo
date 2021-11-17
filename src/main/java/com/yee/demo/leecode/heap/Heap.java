@@ -1,18 +1,17 @@
-package com.yee.demo.leecode;
+package com.yee.demo.leecode.heap;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @Desciption:
+ * @Desciption: 最大堆 最小堆
  * @Auther: yee
  * @Date:2021/11/17 2:35 PM
  */
 public class Heap {
 
-
-    /**3
+    /**
      * 最小堆
      * @param oldArr
      * @param k
