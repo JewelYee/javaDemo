@@ -1,0 +1,42 @@
+rocketmq:
+  producer:
+    groupName: test_group_producer
+    namesrvAddr: test_producer_namesrvAddr
+    maxMessageSize: 4096
+    sendMsgTimeout: 3000
+    retryTimesWhenSendFailed: 2
+
+rocketmq:
+  consumer:
+    namesrvAddr: test_group_consumer
+    groupName: test_consumer_namesrvAddr
+    consumeThreadMin: 1
+    consumeThreadMax: 10
+    consumeMessageBatchMaxSize: 2
+    topics:
+
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: 123456
+
+spring:
+  kafka:
+  	# Kafka\u670D\u52A1\u5730\u5740
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      # \u6307\u5B9A\u4E00\u4E2A\u9ED8\u8BA4\u7684\u7EC4\u540D
+      group-id: consumer-group1
+      #\u5E8F\u5217\u5316\u53CD\u5E8F\u5217\u5316
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      # \u6279\u91CF\u6293\u53D6
+      batch-size: 65536
+      # \u7F13\u5B58\u5BB9\u91CF
+      buffer-memory: 524288
