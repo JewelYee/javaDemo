@@ -14,7 +14,7 @@ import java.util.List;
  * @Auther: yee
  * @Date:2021/12/2 5:32 PM
  */
-public class OrderSplitStrategy implements SceneStrategy {
+public class OrderRefondStrategy implements SceneStrategy {
 
     @Override
     public List<LiquidationRecord> liquidation(BaseRequestDTO baseRequestDTO) {
@@ -24,7 +24,7 @@ public class OrderSplitStrategy implements SceneStrategy {
         OrderDTO orderDTO = (OrderDTO) baseRequestDTO;
 
         BigDecimal recoveryServiceFee = orderDTO.getRecoveryServiceFee();
-        if (recoveryServiceFee.compareTo(BigDecimal.ZERO) != 0) {
+        if (recoveryServiceFee.compareTo(BigDecimal.ZERO) > 0) {
             LiquidationRecord record1 = new LiquidationRecord();
             record1.setAmount(recoveryServiceFee);
             record1.setExpenseName("分账收回服务费");
