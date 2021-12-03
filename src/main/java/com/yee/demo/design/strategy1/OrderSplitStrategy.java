@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Desciption:
+ * @Desciption: 订单分账
  * @Auther: yee
  * @Date:2021/12/2 5:32 PM
  */
