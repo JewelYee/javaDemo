@@ -40,3 +40,163 @@ spring:
       batch-size: 65536
       # \u7F13\u5B58\u5BB9\u91CF
       buffer-memory: 524288
+
+edis.port: 6379
+spring.redis.password: y@X1aqLTf$uK&7iJ5bjJ@0!p
+
+#数据源
+spring.shardingsphere.datasource.names: ds0,ds1,ds2,ds3,ds4,ds5,ds6,ds7,ds8
+spring.shardingsphere.datasource.ds0.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds0.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds0.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_0?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds0.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds0.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds0.initialSize: 2
+spring.shardingsphere.datasource.ds0.minIdle: 2
+spring.shardingsphere.datasource.ds0.maxActive: 50
+spring.shardingsphere.datasource.ds0.maxWait: 10000
+spring.shardingsphere.datasource.ds0.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds0.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds0.testWhileIdle: true
+spring.shardingsphere.datasource.ds0.testOnBorrow: true
+spring.shardingsphere.datasource.ds0.testOnReturn: false
+
+
+spring.shardingsphere.datasource.ds1.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds1.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds1.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_1?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds1.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds1.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds1.initialSize: 2
+spring.shardingsphere.datasource.ds1.minIdle: 2
+spring.shardingsphere.datasource.ds1.maxActive: 50
+spring.shardingsphere.datasource.ds1.maxWait: 10000
+spring.shardingsphere.datasource.ds1.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds1.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds1.testWhileIdle: true
+spring.shardingsphere.datasource.ds1.testOnBorrow: true
+spring.shardingsphere.datasource.ds1.testOnReturn: false
+
+spring.shardingsphere.datasource.ds2.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds2.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds2.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_2?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds2.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds2.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds2.initialSize: 2
+spring.shardingsphere.datasource.ds2.minIdle: 2
+spring.shardingsphere.datasource.ds2.maxActive: 50
+spring.shardingsphere.datasource.ds2.maxWait: 10000
+spring.shardingsphere.datasource.ds2.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds2.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds2.testWhileIdle: true
+spring.shardingsphere.datasource.ds2.testOnBorrow: true
+spring.shardingsphere.datasource.ds2.testOnReturn: false
+
+spring.shardingsphere.datasource.ds3.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds3.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds3.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_3?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds3.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds3.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds3.initialSize: 2
+spring.shardingsphere.datasource.ds3.minIdle: 2
+spring.shardingsphere.datasource.ds3.maxActive: 50
+spring.shardingsphere.datasource.ds3.maxWait: 10000
+spring.shardingsphere.datasource.ds3.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds3.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds3.testWhileIdle: true
+spring.shardingsphere.datasource.ds3.testOnBorrow: true
+spring.shardingsphere.datasource.ds3.testOnReturn: false
+
+spring.shardingsphere.datasource.ds4.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds4.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds4.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_4?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds4.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds4.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds4.initialSize: 2
+spring.shardingsphere.datasource.ds4.minIdle: 2
+spring.shardingsphere.datasource.ds4.maxActive: 50
+spring.shardingsphere.datasource.ds4.maxWait: 10000
+spring.shardingsphere.datasource.ds4.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds4.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds4.testWhileIdle: true
+spring.shardingsphere.datasource.ds4.testOnBorrow: true
+spring.shardingsphere.datasource.ds4.testOnReturn: false
+
+spring.shardingsphere.datasource.ds5.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds5.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds5.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_5?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds5.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds5.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds5.initialSize: 2
+spring.shardingsphere.datasource.ds5.minIdle: 2
+spring.shardingsphere.datasource.ds5.maxActive: 50
+spring.shardingsphere.datasource.ds5.maxWait: 10000
+spring.shardingsphere.datasource.ds5.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds5.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds5.testWhileIdle: true
+spring.shardingsphere.datasource.ds5.testOnBorrow: true
+spring.shardingsphere.datasource.ds5.testOnReturn: false
+
+spring.shardingsphere.datasource.ds6.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds6.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds6.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_6?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds6.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds6.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds6.initialSize: 2
+spring.shardingsphere.datasource.ds6.minIdle: 2
+spring.shardingsphere.datasource.ds6.maxActive: 50
+spring.shardingsphere.datasource.ds6.maxWait: 10000
+spring.shardingsphere.datasource.ds6.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds6.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds6.testWhileIdle: true
+spring.shardingsphere.datasource.ds6.testOnBorrow: true
+spring.shardingsphere.datasource.ds6.testOnReturn: false
+
+spring.shardingsphere.datasource.ds7.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds7.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds7.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_7?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds7.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds7.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds7.initialSize: 2
+spring.shardingsphere.datasource.ds7.minIdle: 2
+spring.shardingsphere.datasource.ds7.maxActive: 50
+spring.shardingsphere.datasource.ds7.maxWait: 10000
+spring.shardingsphere.datasource.ds7.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds7.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds7.testWhileIdle: true
+spring.shardingsphere.datasource.ds7.testOnBorrow: true
+spring.shardingsphere.datasource.ds7.testOnReturn: false
+
+spring.shardingsphere.datasource.ds8.type: com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.ds8.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.ds8.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_8?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds8.username: rw_sd_liquidation
+spring.shardingsphere.datasource.ds8.password: G$5Hb^QC3DbDbfib
+spring.shardingsphere.datasource.ds8.initialSize: 2
+spring.shardingsphere.datasource.ds8.minIdle: 2
+spring.shardingsphere.datasource.ds8.maxActive: 50
+spring.shardingsphere.datasource.ds8.maxWait: 10000
+spring.shardingsphere.datasource.ds8.timeBetweenEvictionRunsMillis: 60000
+spring.shardingsphere.datasource.ds8.minEvictableIdleTimeMillis: 300000
+spring.shardingsphere.datasource.ds8.testWhileIdle: true
+spring.shardingsphere.datasource.ds8.testOnBorrow: true
+spring.shardingsphere.datasource.ds8.testOnReturn: false
+
+
+
+spring.shardingsphere.sharding.tables.t_liquidation_record.actual-data-nodes: ds$->{0..7}.t_liquidation_record$->{0..127}
+spring.shardingsphere.sharding.tables.t_liquidation_record.table-strategy.standard.sharding-column: trade_no
+spring.shardingsphere.sharding.tables.t_liquidation_record.table-strategy.standard.precise-algorithm-class-name: com.sd.liquidation.core.shardingsphere.algorithm.CRC32PreciseShardingAlgorithm
+spring.shardingsphere.sharding.tables.t_liquidation_record.database-strategy.standard.sharding-column: trade_no
+spring.shardingsphere.sharding.tables.t_liquidation_record.database-strategy.standard.precise-algorithm-class-name: com.sd.liquidation.core.shardingsphere.algorithm.CRC32PreciseShardingAlgorithm
+
+
+spring.shardingsphere.sharding.tables.t_trade_record.actual-data-nodes: ds$->{0..7}.t_trade_record$->{0..127}
+spring.shardingsphere.sharding.tables.t_trade_record.table-strategy.standard.sharding-column: trade_no
+spring.shardingsphere.sharding.tables.t_trade_record.table-strategy.standard.precise-algorithm-class-name: com.sd.liquidation.core.shardingsphere.algorithm.CRC32PreciseShardingAlgorithm
+spring.shardingsphere.sharding.tables.t_trade_record.database-strategy.standard.sharding-column: trade_no
+spring.shardingsphere.sharding.tables.t_trade_record.database-strategy.standard.precise-algorithm-class-name: com.sd.liquidation.core.shardingsphere.algorithm.CRC32PreciseShardingAlgorithm
+
+spring.shardingsphere.sharding.tables.t_expense_dict.actual-data-nodes: ds$->{8}.t_expense_dict
+pring.shardingsphere.sharding.tables.t_expense_item.actual-data-nodes: ds$->{8}.t_expense_item
+pring.shardingsphere.sharding.tables.t_scenes_item.actual-data-nodes: ds$->{8}.t_scenes_item

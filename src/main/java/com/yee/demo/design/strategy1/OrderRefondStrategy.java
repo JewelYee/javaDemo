@@ -23,6 +23,14 @@ public class OrderRefondStrategy implements SceneStrategy {
 
         OrderDTO orderDTO = (OrderDTO) baseRequestDTO;
 
+        // 1.是否宝丢失
+        //  1.2 是否第一次退款
+
+        //      1.2.1 第一次退款
+        //          1.2.1.1 退款金额小于宝成本，宝丢失收入账户吐出宝丢失金额，退还用户退款金额，剩余金额重新再分账，订单费、分账收回服务费重新再收一次
+        //          1.2.1.2 退款金额大于宝成本，宝丢失收入账户吐出宝丢失金额，退还用户退款金额，剩余需要退款金额按照比例从分账方、订单费、分账收回服务费退回
+        //      1.2.2 不是第一次退款
+                    // 1.2.2.1 退还用户退款金额，按照比例从分账方、订单费、分账收回服务费退回
         BigDecimal recoveryServiceFee = orderDTO.getRecoveryServiceFee();
         if (recoveryServiceFee.compareTo(BigDecimal.ZERO) > 0) {
             LiquidationRecord record1 = new LiquidationRecord();
