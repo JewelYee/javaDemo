@@ -1,4 +1,4 @@
-package com.yee.demo.design.dto;
+package com.yee.demo.design.dto.request;
 
 import com.yee.demo.design.enums.ScenesItemEnum;
 import lombok.AllArgsConstructor;

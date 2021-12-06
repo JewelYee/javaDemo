@@ -1,7 +1,7 @@
 package com.yee.demo.design.strategy1;
 
-import com.yee.demo.design.LiquidationRecord;
-import com.yee.demo.design.dto.BaseRequestDTO;
+import com.yee.demo.design.dto.resp.LiquidationRecord;
+import com.yee.demo.design.dto.request.BaseRequestDTO;
 
 import java.util.List;
 

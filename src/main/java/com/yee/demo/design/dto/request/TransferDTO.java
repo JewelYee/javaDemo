@@ -1,4 +1,4 @@
-package com.yee.demo.design.dto;
+package com.yee.demo.design.dto.request;
 
 import lombok.Data;
 

@@ -1,16 +1,16 @@
-package com.yee.demo.design.dto;
+package com.yee.demo.design.dto.request;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 /**
- * @Desciption: B端线上提现
+ * @Desciption: 线下转账
  * @Auther: yee
  * @Date:2021/8/31 2:07 PM
  */
 @Data
-public class BOnlineWithdrawalDTO extends BaseRequestDTO {
+public class TransferWithdrawalDTO extends BaseRequestDTO {
 
 
 
@@ -23,5 +23,4 @@ public class BOnlineWithdrawalDTO extends BaseRequestDTO {
      * 提现手续费
      */
     private BigDecimal withdrawalServerFee;
-
 }

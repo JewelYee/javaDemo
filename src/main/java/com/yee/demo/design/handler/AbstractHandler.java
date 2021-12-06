@@ -1,6 +1,6 @@
 package com.yee.demo.design.handler;
 
-import com.yee.demo.design.dto.BaseRequestDTO;
+import com.yee.demo.design.dto.request.BaseRequestDTO;
 
 /**
  * @Desciption:

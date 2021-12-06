@@ -1,25 +1,25 @@
-package com.yee.demo.design;
+package com.yee.demo.design.dto.request;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * @Desciption:
- * @Auther: yee
- * @Date:2021/12/2 4:56 PM
+ * <p>
+ * 清算流水 
+ * </p>
+ *
+ * @author yee
+ * @since 2021-08-26
  */
-@Data
-public class LiquidationRecord {
 
+@Data
+public class LiquidationRecordDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键
-     */
-    private Long id;
 
     /**
      * 交易id
@@ -35,7 +35,6 @@ public class LiquidationRecord {
      * 费用id
      */
     private Long expenseId;
-    private String expenseName;
 
     /**
      * 规则id
@@ -64,14 +63,8 @@ public class LiquidationRecord {
 
     private Long accountId;
 
-    /**
-     * 规则条件
-     */
-    private String ruleCondition;
 
     private String remark;
-
-    private String ruleName;
 
     private String merchantId;
 
@@ -86,4 +79,7 @@ public class LiquidationRecord {
      * 更新时间
      */
     private Date updateTime;
+
+
+
 }

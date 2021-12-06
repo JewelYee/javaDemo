@@ -226,7 +226,7 @@ public class RedisDistributionLockPlus {
         keys.add(lockKey);
 
         Long result = redisTemplate.execute(script, keys, requestId, Long.toString(timeOut));
-        log.info("续约结果，True成功，False失败 lockKey ={}, result={}", lockKey, EXEC_SUCCESS.equals(result));
+        log.info("续约结果，True成功，False失败 lockKey ={}, resp={}", lockKey, EXEC_SUCCESS.equals(result));
         return EXEC_SUCCESS.equals(result);
     }
 

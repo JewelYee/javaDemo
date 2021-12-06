@@ -1,7 +1,6 @@
 package com.yee.demo.design.enums;
 
-import com.yee.demo.design.dto.BaseRequestDTO;
-import com.yee.demo.design.dto.*;
+import com.yee.demo.design.dto.request.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

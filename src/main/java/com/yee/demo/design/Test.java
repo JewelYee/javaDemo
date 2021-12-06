@@ -1,6 +1,7 @@
 package com.yee.demo.design;
 
-import com.yee.demo.design.dto.ChannelFeeDTO;
+import com.yee.demo.design.dto.request.ChannelFeeDTO;
+import com.yee.demo.design.dto.resp.LiquidationRecord;
 import com.yee.demo.design.strategy1.COnlineRechargeStrategy;
 import com.yee.demo.design.strategy1.SceneStrategy;
 
