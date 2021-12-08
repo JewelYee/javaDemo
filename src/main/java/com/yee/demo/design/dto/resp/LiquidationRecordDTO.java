@@ -11,7 +11,7 @@ import java.util.Date;
  * @Date:2021/12/2 4:56 PM
  */
 @Data
-public class LiquidationRecord {
+public class LiquidationRecordDTO {
 
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,6 @@
 package com.yee.demo.design.strategy1;
 
-import com.yee.demo.design.dto.resp.LiquidationRecord;
+import com.yee.demo.design.dto.resp.LiquidationRecordDTO;
 import com.yee.demo.design.dto.request.BaseRequestDTO;
 import com.yee.demo.design.dto.request.TransferWithdrawalDTO;
 import lombok.Data;
@@ -19,38 +19,38 @@ public class TransferWithdrawalStrategy implements SceneStrategy{
 
 
     @Override
-    public List<LiquidationRecord> liquidation(BaseRequestDTO baseRequestDTO) {
-        List<LiquidationRecord> liquidationRecords = new ArrayList<>();
+    public List<LiquidationRecordDTO> liquidation(BaseRequestDTO baseRequestDTO) {
+        List<LiquidationRecordDTO> liquidationRecordDTOS = new ArrayList<>();
         //spring.getBean
         TransferWithdrawalDTO transferWithdrawalDTO = (TransferWithdrawalDTO) baseRequestDTO;
 
         if (transferWithdrawalDTO.getAmount().compareTo(BigDecimal.ZERO) != 0) {
-            LiquidationRecord liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAmount(transferWithdrawalDTO.getAmount());
-            liquidationRecord.setAccountType("B_BALANCE");
-            liquidationRecord.setRemark(transferWithdrawalDTO.getRemark());
-            liquidationRecord.setCaptitalDirection(2);
-            liquidationRecords.add(liquidationRecord);
+            LiquidationRecordDTO liquidationRecordDTO = new LiquidationRecordDTO();
+            liquidationRecordDTO.setAmount(transferWithdrawalDTO.getAmount());
+            liquidationRecordDTO.setAccountType("B_BALANCE");
+            liquidationRecordDTO.setRemark(transferWithdrawalDTO.getRemark());
+            liquidationRecordDTO.setCaptitalDirection(2);
+            liquidationRecordDTOS.add(liquidationRecordDTO);
 
-            liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType("PT_OFFLINE_TRANSFER");
-            liquidationRecord.setCaptitalDirection(1);
-            liquidationRecords.add(liquidationRecord);
+            liquidationRecordDTO = new LiquidationRecordDTO();
+            liquidationRecordDTO.setAccountType("PT_OFFLINE_TRANSFER");
+            liquidationRecordDTO.setCaptitalDirection(1);
+            liquidationRecordDTOS.add(liquidationRecordDTO);
 
-            liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType("PT_OFFLINE_TRANSFER");
-            liquidationRecord.setCaptitalDirection(2);
-            liquidationRecords.add(liquidationRecord);
+            liquidationRecordDTO = new LiquidationRecordDTO();
+            liquidationRecordDTO.setAccountType("PT_OFFLINE_TRANSFER");
+            liquidationRecordDTO.setCaptitalDirection(2);
+            liquidationRecordDTOS.add(liquidationRecordDTO);
 
         }
 
         if (transferWithdrawalDTO.getWithdrawalServerFee().compareTo(BigDecimal.ZERO) != 0) {
-            LiquidationRecord liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType("PT_OFFLINE_TRANSFER");
-            liquidationRecord.setCaptitalDirection(1);
-            liquidationRecords.add(liquidationRecord);
+            LiquidationRecordDTO liquidationRecordDTO = new LiquidationRecordDTO();
+            liquidationRecordDTO.setAccountType("PT_OFFLINE_TRANSFER");
+            liquidationRecordDTO.setCaptitalDirection(1);
+            liquidationRecordDTOS.add(liquidationRecordDTO);
         }
-        return liquidationRecords;
+        return liquidationRecordDTOS;
     }
 
 }

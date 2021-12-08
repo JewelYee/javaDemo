@@ -2,7 +2,7 @@ package com.yee.demo.design.strategy2;
 
 import com.google.common.collect.Lists;
 import com.yee.demo.design.dto.request.BaseRequestDTO;
-import com.yee.demo.design.dto.resp.LiquidationRecord;
+import com.yee.demo.design.dto.resp.LiquidationRecordDTO;
 import com.yee.demo.design.dto.resp.ResultDTO;
 import com.yee.demo.design.entity.EntryRules;
 import com.yee.demo.design.strategy1.SceneStrategy;
@@ -24,8 +24,8 @@ import java.util.Objects;
 public class StrategyImpl implements SceneStrategy {
 
     @Override
-    public List<LiquidationRecord> liquidation(BaseRequestDTO dto) {
-        List<LiquidationRecord> resultList = Lists.newArrayList();
+    public List<LiquidationRecordDTO> liquidation(BaseRequestDTO dto) {
+        List<LiquidationRecordDTO> resultList = Lists.newArrayList();
 
         Integer code = dto.getScenesItemEnum().getCode();
         // 根据场景code查询出匹配规则
@@ -41,7 +41,7 @@ public class StrategyImpl implements SceneStrategy {
         return resultList;
     }
 
-    private void convertLiquidation(ResultDTO resultDTO, EntryRules entryRule, BaseRequestDTO dto, List<LiquidationRecord> resultList){
+    private void convertLiquidation(ResultDTO resultDTO, EntryRules entryRule, BaseRequestDTO dto, List<LiquidationRecordDTO> resultList){
         if (resultDTO.getCondition()) {
             String accountType = entryRule.getAccountType();
             Integer captitalDirection = entryRule.getCaptitalDirection();
@@ -50,24 +50,24 @@ public class StrategyImpl implements SceneStrategy {
             String userId = resultDTO.getUserId();
 
             // 3.记账
-            LiquidationRecord liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType(StringUtils.lowerCase(accountType));
-            liquidationRecord.setBatchNo(dto.getBatchNo() == null ? " " : dto.getBatchNo());
-            liquidationRecord.setAmount(amount);
-            liquidationRecord.setCaptitalDirection(captitalDirection);
-            liquidationRecord.setExpenseId(entryRule.getExpenseId());
-            liquidationRecord.setRuleCondition(entryRule.getRuleCondition());
-            liquidationRecord.setRuleId(entryRule.getId());
-            liquidationRecord.setUserId(userId == null ? "" : userId );
-            liquidationRecord.setAccountId(accountId);
-            liquidationRecord.setRuleName(entryRule.getRuleName());
-            liquidationRecord.setTradeNo(dto.getTradeNo());
-            liquidationRecord.setCreateTime(new Date());
-            liquidationRecord.setUpdateTime(new Date());
-            liquidationRecord.setMerchantId(resultDTO.getMerchantId());
-            liquidationRecord.setSettlementChannel(resultDTO.getSettlementChannel());
-            liquidationRecord.setRemark(dto.getRemark() == null ? "" : dto.getRemark());
-            resultList.add(liquidationRecord);
+            LiquidationRecordDTO liquidationRecordDTO = new LiquidationRecordDTO();
+            liquidationRecordDTO.setAccountType(StringUtils.lowerCase(accountType));
+            liquidationRecordDTO.setBatchNo(dto.getBatchNo() == null ? " " : dto.getBatchNo());
+            liquidationRecordDTO.setAmount(amount);
+            liquidationRecordDTO.setCaptitalDirection(captitalDirection);
+            liquidationRecordDTO.setExpenseId(entryRule.getExpenseId());
+            liquidationRecordDTO.setRuleCondition(entryRule.getRuleCondition());
+            liquidationRecordDTO.setRuleId(entryRule.getId());
+            liquidationRecordDTO.setUserId(userId == null ? "" : userId );
+            liquidationRecordDTO.setAccountId(accountId);
+            liquidationRecordDTO.setRuleName(entryRule.getRuleName());
+            liquidationRecordDTO.setTradeNo(dto.getTradeNo());
+            liquidationRecordDTO.setCreateTime(new Date());
+            liquidationRecordDTO.setUpdateTime(new Date());
+            liquidationRecordDTO.setMerchantId(resultDTO.getMerchantId());
+            liquidationRecordDTO.setSettlementChannel(resultDTO.getSettlementChannel());
+            liquidationRecordDTO.setRemark(dto.getRemark() == null ? "" : dto.getRemark());
+            resultList.add(liquidationRecordDTO);
         }
     }
 }

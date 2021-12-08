@@ -1,7 +1,7 @@
 package com.yee.demo.design;
 
 import com.yee.demo.design.dto.request.ChannelFeeDTO;
-import com.yee.demo.design.dto.resp.LiquidationRecord;
+import com.yee.demo.design.dto.resp.LiquidationRecordDTO;
 import com.yee.demo.design.strategy1.COnlineRechargeStrategy;
 import com.yee.demo.design.strategy1.SceneStrategy;
 
@@ -23,7 +23,7 @@ public class Test {
         channelFeeDTO.setBatchNo("batchNo");
         channelFeeDTO.setTradeNo("tradeNo");
         SceneStrategy strategy = new COnlineRechargeStrategy();
-        List<LiquidationRecord> liquidation = strategy.liquidation(channelFeeDTO);
+        List<LiquidationRecordDTO> liquidation = strategy.liquidation(channelFeeDTO);
         System.out.println(liquidation);
     }
 }

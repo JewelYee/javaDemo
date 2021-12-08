@@ -1,6 +1,6 @@
 package com.yee.demo.design.strategy1;
 
-import com.yee.demo.design.dto.resp.LiquidationRecord;
+import com.yee.demo.design.dto.resp.LiquidationRecordDTO;
 import com.yee.demo.design.dto.request.BaseRequestDTO;
 
 import java.util.List;
@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface SceneStrategy {
 
-    List<LiquidationRecord> liquidation(BaseRequestDTO baseRequestDTO);
+    List<LiquidationRecordDTO> liquidation(BaseRequestDTO baseRequestDTO);
 }

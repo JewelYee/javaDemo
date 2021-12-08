@@ -1,6 +1,6 @@
 package com.yee.demo.design.strategy1;
 
-import com.yee.demo.design.dto.resp.LiquidationRecord;
+import com.yee.demo.design.dto.resp.LiquidationRecordDTO;
 import com.yee.demo.design.dto.request.BaseRequestDTO;
 import com.yee.demo.design.dto.request.OrderDTO;
 import com.yee.demo.design.dto.request.RoutingInfoDTO;
@@ -31,15 +31,15 @@ public class OrderSplitStrategy implements SceneStrategy {
     // return resultDTOList;
 
     @Override
-    public List<LiquidationRecord> liquidation(BaseRequestDTO baseRequestDTO) {
-        List<LiquidationRecord> list = new ArrayList<>();
+    public List<LiquidationRecordDTO> liquidation(BaseRequestDTO baseRequestDTO) {
+        List<LiquidationRecordDTO> list = new ArrayList<>();
 
 
         OrderDTO orderDTO = (OrderDTO) baseRequestDTO;
 
         BigDecimal recoveryServiceFee = orderDTO.getRecoveryServiceFee();
         if (recoveryServiceFee.compareTo(BigDecimal.ZERO) != 0) {
-            LiquidationRecord record1 = new LiquidationRecord();
+            LiquidationRecordDTO record1 = new LiquidationRecordDTO();
             record1.setAmount(recoveryServiceFee);
             record1.setExpenseName("分账收回服务费");
             record1.setAccountType("PT_SPLIT_RECECIVE_CHANNEL_FEE");
@@ -47,7 +47,7 @@ public class OrderSplitStrategy implements SceneStrategy {
         }
 
         if (orderDTO.getServiceFee().compareTo(BigDecimal.ZERO) != 0){
-            LiquidationRecord record2 = new LiquidationRecord();
+            LiquidationRecordDTO record2 = new LiquidationRecordDTO();
             record2.setAmount(orderDTO.getServiceFee());
             record2.setExpenseName("提现服务费");
             record2.setAccountType("PT_WITHDRAWAL_SERVICE_FEE");
@@ -57,7 +57,7 @@ public class OrderSplitStrategy implements SceneStrategy {
 
         BigDecimal lostAmount = orderDTO.getLostAmount();
         if (lostAmount.compareTo(BigDecimal.ZERO) != 0){
-            LiquidationRecord record3 = new LiquidationRecord();
+            LiquidationRecordDTO record3 = new LiquidationRecordDTO();
             record3.setAmount(lostAmount);
             record3.setExpenseName("宝丢失收入");
             record3.setAccountType("PT_LOST_ORDER_PAY");
@@ -70,19 +70,19 @@ public class OrderSplitStrategy implements SceneStrategy {
             // 营收抵扣
             BigDecimal revenueAmount = e.getRevenueAmount();
             if (revenueAmount.compareTo(BigDecimal.ZERO) != 0) {
-                LiquidationRecord record4 = new LiquidationRecord();
+                LiquidationRecordDTO record4 = new LiquidationRecordDTO();
                 record4.setAccountType("B_BALANCE");
                 record4.setExpenseName("货款收入-营收抵扣");
                 record4.setAmount(revenueAmount);
                 list.add(record4);
-                LiquidationRecord record5 = new LiquidationRecord();
+                LiquidationRecordDTO record5 = new LiquidationRecordDTO();
                 record5.setAccountType("PT_EVENUE_RATIO");
                 record5.setExpenseName("支付货款-营收抵扣");
                 record5.setAmount(revenueAmount);
                 list.add(record4);
             }
             // 分账金额
-            LiquidationRecord record6 = new LiquidationRecord();
+            LiquidationRecordDTO record6 = new LiquidationRecordDTO();
             BigDecimal routingAmount = e.getRoutingAmount();
             record6.setUserId(e.getUserId());
             record6.setAccountType("B_BALANCE");
