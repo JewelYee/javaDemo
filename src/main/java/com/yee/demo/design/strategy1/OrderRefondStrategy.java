@@ -36,7 +36,7 @@ public class OrderRefondStrategy implements SceneStrategy {
             LiquidationRecord record1 = new LiquidationRecord();
             record1.setAmount(recoveryServiceFee);
             record1.setExpenseName("分账收回服务费");
-            record1.setAccountType("ZMKJ_SPLIT_RECECIVE_CHANNEL_FEE");
+            record1.setAccountType("PT_SPLIT_RECECIVE_CHANNEL_FEE");
             list.add(record1);
         }
 
@@ -44,7 +44,7 @@ public class OrderRefondStrategy implements SceneStrategy {
             LiquidationRecord record2 = new LiquidationRecord();
             record2.setAmount(orderDTO.getServiceFee());
             record2.setExpenseName("提现服务费");
-            record2.setAccountType("ZMKJ_WITHDRAWAL_SERVICE_FEE");
+            record2.setAccountType("PT_WITHDRAWAL_SERVICE_FEE");
             list.add(record2);
         }
 
@@ -54,7 +54,7 @@ public class OrderRefondStrategy implements SceneStrategy {
             LiquidationRecord record3 = new LiquidationRecord();
             record3.setAmount(lostAmount);
             record3.setExpenseName("宝丢失收入");
-            record3.setAccountType("ZMKJ_LOST_ORDER_PAY");
+            record3.setAccountType("PT_LOST_ORDER_PAY");
             list.add(record3);
         }
 
@@ -70,7 +70,7 @@ public class OrderRefondStrategy implements SceneStrategy {
                 record4.setAmount(revenueAmount);
                 list.add(record4);
                 LiquidationRecord record5 = new LiquidationRecord();
-                record5.setAccountType("ZMKJ_EVENUE_RATIO");
+                record5.setAccountType("PT_EVENUE_RATIO");
                 record5.setExpenseName("支付货款-营收抵扣");
                 record5.setAmount(revenueAmount);
                 list.add(record4);

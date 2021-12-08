@@ -20,15 +20,20 @@ public class COnlineRechargeStrategy implements SceneStrategy {
         List<LiquidationRecord> liquidationRecords = new ArrayList<>();
             //spring.getBean
             ChannelFeeDTO channelFeeDTO = (ChannelFeeDTO) baseRequestDTO;
-            if (channelFeeDTO.getAmount().compareTo(BigDecimal.ZERO) != 0) {
-                LiquidationRecord liquidationRecord = new LiquidationRecord();
-                liquidationRecord.setAmount(channelFeeDTO.getAmount());
-                liquidationRecord.setAccountType("ZMKJ_PAYMENT_CHANNEL_FEE");
-                liquidationRecord.setRemark(channelFeeDTO.getRemark());
-                liquidationRecord.setCaptitalDirection(2);
-                liquidationRecords.add(liquidationRecord);
-            }
+        channelFeeResult(liquidationRecords, channelFeeDTO);
         return liquidationRecords;
 
+    }
+
+    static void channelFeeResult(List<LiquidationRecord> liquidationRecords, ChannelFeeDTO channelFeeDTO) {
+
+        if (channelFeeDTO.getAmount().compareTo(BigDecimal.ZERO) != 0) {
+            LiquidationRecord liquidationRecord = new LiquidationRecord();
+            liquidationRecord.setAmount(channelFeeDTO.getAmount());
+            liquidationRecord.setAccountType("PT_PAYMENT_CHANNEL_FEE");
+            liquidationRecord.setRemark(channelFeeDTO.getRemark());
+            liquidationRecord.setCaptitalDirection(2);
+            liquidationRecords.add(liquidationRecord);
+        }
     }
 }

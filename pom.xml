@@ -16,9 +16,15 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <java.version>8</java.version>
+        <java.version>1.8</java.version>
         <fastjson.version>1.2.60</fastjson.version>
+        <source.version>${java.version}</source.version>
+        <target.version>${java.version}</target.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
+        <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -141,6 +147,16 @@
             <artifactId>spring-kafka</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-boot-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>QLExpress</artifactId>
+            <version>3.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>

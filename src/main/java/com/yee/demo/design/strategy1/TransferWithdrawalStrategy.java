@@ -22,31 +22,31 @@ public class TransferWithdrawalStrategy implements SceneStrategy{
     public List<LiquidationRecord> liquidation(BaseRequestDTO baseRequestDTO) {
         List<LiquidationRecord> liquidationRecords = new ArrayList<>();
         //spring.getBean
-        TransferWithdrawalDTO channelFeeDTO = (TransferWithdrawalDTO) baseRequestDTO;
+        TransferWithdrawalDTO transferWithdrawalDTO = (TransferWithdrawalDTO) baseRequestDTO;
 
-        if (channelFeeDTO.getAmount().compareTo(BigDecimal.ZERO) != 0) {
+        if (transferWithdrawalDTO.getAmount().compareTo(BigDecimal.ZERO) != 0) {
             LiquidationRecord liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAmount(channelFeeDTO.getAmount());
+            liquidationRecord.setAmount(transferWithdrawalDTO.getAmount());
             liquidationRecord.setAccountType("B_BALANCE");
-            liquidationRecord.setRemark(channelFeeDTO.getRemark());
+            liquidationRecord.setRemark(transferWithdrawalDTO.getRemark());
             liquidationRecord.setCaptitalDirection(2);
             liquidationRecords.add(liquidationRecord);
 
             liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType("ZMKJ_OFFLINE_TRANSFER");
+            liquidationRecord.setAccountType("PT_OFFLINE_TRANSFER");
             liquidationRecord.setCaptitalDirection(1);
             liquidationRecords.add(liquidationRecord);
 
             liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType("ZMKJ_OFFLINE_TRANSFER");
+            liquidationRecord.setAccountType("PT_OFFLINE_TRANSFER");
             liquidationRecord.setCaptitalDirection(2);
             liquidationRecords.add(liquidationRecord);
 
         }
 
-        if (channelFeeDTO.getWithdrawalServerFee().compareTo(BigDecimal.ZERO) != 0) {
+        if (transferWithdrawalDTO.getWithdrawalServerFee().compareTo(BigDecimal.ZERO) != 0) {
             LiquidationRecord liquidationRecord = new LiquidationRecord();
-            liquidationRecord.setAccountType("ZMKJ_OFFLINE_TRANSFER");
+            liquidationRecord.setAccountType("PT_OFFLINE_TRANSFER");
             liquidationRecord.setCaptitalDirection(1);
             liquidationRecords.add(liquidationRecord);
         }

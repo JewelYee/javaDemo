@@ -16,6 +16,20 @@ import java.util.List;
  */
 public class OrderSplitStrategy implements SceneStrategy {
 
+
+    // resultDTOList = new ArrayList();
+    // if(null != dto.getRoutingInfoDTOList() && dto.getRoutingInfoDTOList().size() > 0){
+    // for(i=0;i<dto.getRoutingInfoDTOList().size();i++){
+    // list = dto.getRoutingInfoDTOList();
+    // item = list.get(i);
+    // if(!(item.getCargoType() == 2 && item.getRoutingType()=='agent' && item.getRoutingAmount() >= 0)){
+    // resultDTO = new com.sd.liquidation.core.bo.ResultDTO;
+    // resultDTO.setAmount(item.getRoutingAmount());
+    // resultDTO.setUserId(item.getUserId());
+    // resultDTO.setCondition(true);
+    // resultDTOList.add(resultDTO);}} }
+    // return resultDTOList;
+
     @Override
     public List<LiquidationRecord> liquidation(BaseRequestDTO baseRequestDTO) {
         List<LiquidationRecord> list = new ArrayList<>();
@@ -28,7 +42,7 @@ public class OrderSplitStrategy implements SceneStrategy {
             LiquidationRecord record1 = new LiquidationRecord();
             record1.setAmount(recoveryServiceFee);
             record1.setExpenseName("分账收回服务费");
-            record1.setAccountType("ZMKJ_SPLIT_RECECIVE_CHANNEL_FEE");
+            record1.setAccountType("PT_SPLIT_RECECIVE_CHANNEL_FEE");
             list.add(record1);
         }
 
@@ -36,7 +50,7 @@ public class OrderSplitStrategy implements SceneStrategy {
             LiquidationRecord record2 = new LiquidationRecord();
             record2.setAmount(orderDTO.getServiceFee());
             record2.setExpenseName("提现服务费");
-            record2.setAccountType("ZMKJ_WITHDRAWAL_SERVICE_FEE");
+            record2.setAccountType("PT_WITHDRAWAL_SERVICE_FEE");
             list.add(record2);
         }
 
@@ -46,7 +60,7 @@ public class OrderSplitStrategy implements SceneStrategy {
             LiquidationRecord record3 = new LiquidationRecord();
             record3.setAmount(lostAmount);
             record3.setExpenseName("宝丢失收入");
-            record3.setAccountType("ZMKJ_LOST_ORDER_PAY");
+            record3.setAccountType("PT_LOST_ORDER_PAY");
             list.add(record3);
         }
 
@@ -62,7 +76,7 @@ public class OrderSplitStrategy implements SceneStrategy {
                 record4.setAmount(revenueAmount);
                 list.add(record4);
                 LiquidationRecord record5 = new LiquidationRecord();
-                record5.setAccountType("ZMKJ_EVENUE_RATIO");
+                record5.setAccountType("PT_EVENUE_RATIO");
                 record5.setExpenseName("支付货款-营收抵扣");
                 record5.setAmount(revenueAmount);
                 list.add(record4);
