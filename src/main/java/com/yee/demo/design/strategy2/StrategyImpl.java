@@ -38,6 +38,8 @@ public class StrategyImpl implements SceneStrategy {
             List<ResultDTO> resultDTOList = (List<ResultDTO>) resultObj;
             resultDTOList.forEach(resultDTO -> convertLiquidation(resultDTO, entryRule, dto, resultList));
         });
+        // 1.不需要写那么多handler
+        // 规则改变不大 比如要添加 什么其他费用不需要部署代码
         return resultList;
     }
 

@@ -12,28 +12,21 @@ import java.math.BigDecimal;
 @Data
 public class TransferDTO  extends BaseRequestDTO {
 
+    /**
+     * 划扣金额
+     */
     private BigDecimal amount;
+
+    /**
+     * 上级
+     */
     private String superUserId;
     private Long superAccountId;
+
+    /**
+     * 下级
+     */
     private String subUserId;
     private Long subAccountId;
 
-
-    @Override
-    public String toString() {
-
-        final StringBuilder sb = new StringBuilder("{");
-        sb.append("\"amount\":")
-                .append(amount);
-        sb.append(",\"superUserId\":\"")
-                .append(superUserId).append('\"');
-        sb.append(",\"superAccountId\":")
-                .append(superAccountId);
-        sb.append(",\"subUserId\":\"")
-                .append(subUserId).append('\"');
-        sb.append(",\"subAccountId\":")
-                .append(subAccountId);
-        sb.append('}');
-        return sb.toString();
-    }
 }

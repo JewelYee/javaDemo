@@ -16,6 +16,6 @@ public class AdvancFundsDTO extends BaseRequestDTO {
     /**
      * 退款垫资金额
      */
-    private BigDecimal refundAdvance;
+    private BigDecimal refundAdvanceAmount;
 
 }

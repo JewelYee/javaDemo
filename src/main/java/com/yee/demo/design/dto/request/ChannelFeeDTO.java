@@ -11,19 +11,11 @@ import java.math.BigDecimal;
  */
 @Data
 public class ChannelFeeDTO extends BaseRequestDTO {
+
+    /**
+     * 渠道手续费
+     */
     private BigDecimal amount;
     private String merchantId;
 
-
-    @Override
-    public String toString() {
-
-        final StringBuilder sb = new StringBuilder("{");
-        sb.append("\"amount\":")
-                .append(amount);
-        sb.append(",\"merchantId\":\"")
-                .append(merchantId).append('\"');
-        sb.append('}');
-        return sb.toString();
-    }
 }

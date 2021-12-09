@@ -17,5 +17,8 @@ public class DebtRepaymentDTO extends BaseRequestDTO {
      */
     private Integer type;
 
+    /**
+     * 偿还金额
+     */
     private BigDecimal amount;
 }

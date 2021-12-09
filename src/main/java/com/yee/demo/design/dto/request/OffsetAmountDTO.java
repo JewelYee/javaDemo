@@ -12,5 +12,8 @@ import java.math.BigDecimal;
 @Data
 public class OffsetAmountDTO  extends BaseRequestDTO {
 
+    /**
+     * 抵扣金额
+     */
     private BigDecimal amount;
 }

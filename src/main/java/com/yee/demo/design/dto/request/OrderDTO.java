@@ -43,24 +43,4 @@ public class OrderDTO extends BaseRequestDTO {
      */
     private List<RoutingInfoDTO> routingInfoDTOList;
 
-
-    @Override
-    public String toString() {
-
-        final StringBuilder sb = new StringBuilder("{");
-        sb.append("\"userId\":\"")
-                .append(userId).append('\"');
-        sb.append(",\"lostAmount\":")
-                .append(lostAmount);
-        sb.append(",\"recoveryServiceFee\":")
-                .append(recoveryServiceFee);
-        sb.append(",\"serviceFee\":")
-                .append(serviceFee);
-        sb.append(",\"settlementChannel\":\"")
-                .append(settlementChannel).append('\"');
-        sb.append(",\"routingInfoDTOList\":")
-                .append(routingInfoDTOList);
-        sb.append('}');
-        return sb.toString();
-    }
 }
