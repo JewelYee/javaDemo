@@ -48,7 +48,7 @@ spring.redis.password: y@X1aqLTf$uK&7iJ5bjJ@0!p
 spring.shardingsphere.datasource.names: ds0,ds1,ds2,ds3,ds4,ds5,ds6,ds7,ds8
 spring.shardingsphere.datasource.ds0.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds0.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds0.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_0?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds0.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_0?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds0.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds0.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds0.initialSize: 2
@@ -64,7 +64,7 @@ spring.shardingsphere.datasource.ds0.testOnReturn: false
 
 spring.shardingsphere.datasource.ds1.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds1.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds1.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_1?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds1.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_1?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds1.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds1.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds1.initialSize: 2
@@ -79,7 +79,7 @@ spring.shardingsphere.datasource.ds1.testOnReturn: false
 
 spring.shardingsphere.datasource.ds2.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds2.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds2.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_2?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds2.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_2?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds2.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds2.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds2.initialSize: 2
@@ -94,7 +94,7 @@ spring.shardingsphere.datasource.ds2.testOnReturn: false
 
 spring.shardingsphere.datasource.ds3.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds3.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds3.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_3?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds3.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_3?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds3.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds3.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds3.initialSize: 2
@@ -109,7 +109,7 @@ spring.shardingsphere.datasource.ds3.testOnReturn: false
 
 spring.shardingsphere.datasource.ds4.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds4.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds4.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_4?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds4.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_4?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds4.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds4.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds4.initialSize: 2
@@ -124,7 +124,7 @@ spring.shardingsphere.datasource.ds4.testOnReturn: false
 
 spring.shardingsphere.datasource.ds5.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds5.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds5.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_5?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds5.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_5?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds5.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds5.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds5.initialSize: 2
@@ -139,7 +139,7 @@ spring.shardingsphere.datasource.ds5.testOnReturn: false
 
 spring.shardingsphere.datasource.ds6.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds6.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds6.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_6?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds6.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_6?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds6.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds6.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds6.initialSize: 2
@@ -154,7 +154,7 @@ spring.shardingsphere.datasource.ds6.testOnReturn: false
 
 spring.shardingsphere.datasource.ds7.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds7.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds7.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_7?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds7.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_7?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds7.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds7.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds7.initialSize: 2
@@ -169,7 +169,7 @@ spring.shardingsphere.datasource.ds7.testOnReturn: false
 
 spring.shardingsphere.datasource.ds8.type: com.alibaba.druid.pool.DruidDataSource
 spring.shardingsphere.datasource.ds8.driver-class-name: com.mysql.cj.jdbc.Driver
-spring.shardingsphere.datasource.ds8.url: jdbc:mysql://rw-middle-settlement.mysql.sdbattery.net:3306/sd_liquidation_8?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
+spring.shardingsphere.datasource.ds8.url: jdbc:mysql://127.0.0.1:3306/sd_liquidation_8?serverTimezone=GMT%2B8&characterEncoding=utf8&connectTimeout=5000&socketTimeout=3000&autoReconnect=true&tinyInt1isBit=false
 spring.shardingsphere.datasource.ds8.username: rw_sd_liquidation
 spring.shardingsphere.datasource.ds8.password: G$5Hb^QC3DbDbfib
 spring.shardingsphere.datasource.ds8.initialSize: 2
