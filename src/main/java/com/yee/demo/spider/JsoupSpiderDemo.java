@@ -1,45 +1,58 @@
 package com.yee.demo.spider;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author yee
  * 2024/6/26 10:22
  */
 public class JsoupSpiderDemo {
+    final static String localUri = "/Users/linyijun/Desktop/spider/";
+
     public static void main(String[] args) {
         try {
-            // 发送HTTP GET请求并获取网页内容
-//            Document document = Jsoup.connect("https://webapps.condusef.gob.mx/SIPRES/jsp/pub/index.jsp#14981").get();
-            Document document = Jsoup.connect("https://webapps.condusef.gob.mx/SIPRES/jsp/pub/resulbusq.jsp").get();
+            String htmlContent = read(null);
+            Document document = Jsoup.parse(htmlContent);
+            Elements links = document.select("a[href]");
+            for (Element link : links) {
+                String onclick = link.attr("onclick");
+                String httpUrl = StrUtil.split(StrUtil.replace(onclick,"\"","'"),"'").get(1);
+                String httpGetUrl = httpUrl.replace("../../jsp", "https://webapps.condusef.gob.mx/SIPRES/jsp");
+                Document detailDocument = Jsoup.connect(httpGetUrl).get();
 
-            // 获取网页标题
-            Element body = document.body();
-            System.out.println("【document】：" + JSON.toJSONString(document));
-            System.out.println("【body】：" + body.text());
-            body.html();
-            System.out.println("【html】：" + body.html());
-            body.html();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            // 获取所有的链接
-//            Elements links = document.select("a[href]");
-//            System.out.println("链接数量：" + links.size());
-
-            // 打印每个链接的文本和URL
-//            for (Element link : links) {
-//                String linkText = link.text();
-//                String linkUrl = link.attr("href");
-//                System.out.println("链接文本：" + linkText);
-//                System.out.println("链接URL：" + linkUrl);
-//            }
+    private static String read(String fileName){
+        try {
+            if (StringUtils.isEmpty(fileName)) {
+                fileName = "web1.txt";
+            }else {
+                fileName = fileName+".html";
+            }
+            File file = new File(localUri + fileName);
+            FileInputStream fin=new FileInputStream(file);
+            InputStreamReader in=new InputStreamReader(fin,"utf-8"); //获取输入流
+            BufferedReader br = new BufferedReader(in);
+            char[] buf=new char[fin.available()];
+            br.read(buf); //br的效率更高，带缓冲
+            in.close();
+            fin.close();
+            return String.valueOf(buf);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

@@ -64,11 +64,9 @@ public class WebMagicSpiderDemo implements PageProcessor {
 
                 System.out.println("httpGetUrl:"+httpGetUrl);
             }
-
         }
     }
 
-    // 解析详细页面
     private void processDetailPage(Page page) {
         // 提取详细页面的信息
         String shortName = page.getHtml().xpath("//div[@id='div_generales']/div/div[1]/div[1]/text()").get();
@@ -78,7 +76,6 @@ public class WebMagicSpiderDemo implements PageProcessor {
         String sipresDate = page.getHtml().xpath("//div[@id='div_generales']/div/div[2]/div[2]/text()").get();
         String sicDate = page.getHtml().xpath("//div[@id='div_generales']/div/div[3]/div/text()").get();
 
-        // 输出结果到控制台（或存储到数据库/文件等）
         System.out.println("ShortName: " + shortName);
         System.out.println("Status: " + status);
         System.out.println("Registration Code: " + registrationCode);

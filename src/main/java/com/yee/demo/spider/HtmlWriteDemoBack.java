@@ -1,7 +1,6 @@
 package com.yee.demo.spider;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.excel.EasyExcel;
 import org.apache.commons.compress.utils.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
@@ -26,12 +25,13 @@ import java.util.List;
  * @author yee
  * 2024/6/27 10:47
  */
-public class HttpClientExample {
-
+public class HtmlWriteDemoBack {
     final static String localUri = "/Users/linyijun/Desktop/spider/";
     public static void main(String[] args) {
+//        writeWebJSp();
         String htmlContent = read(null);
         processHtml(htmlContent);
+
     }
 
     private static HtmlDetailDTO processDetailUrl(Element td, HtmlDetailDTO dto){
@@ -40,7 +40,11 @@ public class HttpClientExample {
             String onclick = a.attr("onclick");
             String httpUrl = StrUtil.split(StrUtil.replace(onclick,"\"","'"),"'").get(1);
             String httpGetUrl = httpUrl.replace("../../jsp", "https://webapps.condusef.gob.mx/SIPRES/jsp");
+            if(httpGetUrl.length() == 49){
+                return dto;
+            }
             return processDetail(httpGetUrl, dto);
+//            }
         }
         return dto;
     }
@@ -50,7 +54,7 @@ public class HttpClientExample {
 
         Document doc = Jsoup.parse(htmlContent);
         Elements trs = doc.select("table tr");
-        trs.stream().parallel().forEach(tr ->{
+        trs.stream().forEach(tr ->{
             HtmlDetailDTO dto = new HtmlDetailDTO();
             Elements tds = tr.select("td");
             for (int i = 0; i < tds.size(); i++) {
@@ -92,27 +96,24 @@ public class HttpClientExample {
             }
             list.add(dto);
             System.out.println(list.size());
-
+//            if (list.size() == 80) {
+//                EasyExcel.write("/Users/linyijun/Desktop/test.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
+                return;
+//            }
         });
-        System.out.println("========= 开始写excel =========");
-        EasyExcel.write("/Users/linyijun/Desktop/data_export_111.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
+//        for (Element tr : trs) {
+//            System.out.println("size:"+list.size());
+//        }
+//        System.out.println("========= 开始写excel =========");
+//        EasyExcel.write("/Users/linyijun/Desktop/data_export.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
     }
 
 
 
     private static HtmlDetailDTO processDetail(String url, HtmlDetailDTO dto) {
         try {
-            Document document = null;
-            try{
-                // 使用Jsoup获取HTML文档
-                document = Jsoup.connect(url).get();
-            } catch (IOException e) {
-                document = Jsoup.connect(url).get();
-            }
-            if (document == null) {
-                document = Jsoup.connect(url).get();
-            }
-
+            // 使用Jsoup获取HTML文档
+            Document document = Jsoup.connect(url).get();
             Elements rows = document.select("#div_generales .row");
             for (Element row : rows) {
                 // 遍历row元素下的col-sm-*类的div元素
@@ -124,15 +125,39 @@ public class HttpClientExample {
                     String wholeText = col.wholeText();
                     String[] split = title.split(" ");
                     String splitKey = title;
-                    String text = "";
                     if (split.length > 1) {
                         splitKey = split[split.length-1];
-
                     }
                     String[] split1 = wholeText.split(splitKey);
-                    if (split1.length > 1){
-                        text = split1[1];
-                    }
+//                    System.out.println("split:"+ split1[1]);
+//
+//                    Element hrTag = col.select("hr").first();
+//                    String text="";
+//                    if (hrTag != null) {
+//                        StringBuilder textAfterHr = new StringBuilder();
+//                        for (Node node : hrTag.siblingNodes()) {
+//                            if (node instanceof org.jsoup.nodes.TextNode) {
+//                                String value = ((TextNode) node).getWholeText().trim();
+//                                // 如果节点是TextNode，则获取其文本并去除前后的空白字符
+//                                textAfterHr.append(value);
+//                            }
+//                        }
+//                    }
+//
+//                    if (StringUtils.isEmpty(text)&& hrTag!=null){
+//                        StringBuilder textAfterHr = new StringBuilder();
+//                        Element nextSibling = hrTag.nextElementSibling();
+//                        while (nextSibling != null && !(nextSibling.tagName().equals("b") || nextSibling.tagName().equals("hr"))) {
+//                            // 累加文本内容，包括子元素的文本
+//                            textAfterHr.append(nextSibling.wholeText()).append(" ");
+//                            nextSibling = nextSibling.nextElementSibling();
+//                        }
+//                        text = textAfterHr.toString().trim();
+//                    }
+//                    if (StringUtils.isEmpty(text) && hrTag!=null && hrTag.nextElementSibling()!=null){
+//                        text = hrTag.nextElementSibling().wholeText();
+//                    }
+                    String text = split1[1];
                     dto = setValue(title.trim(), text.trim(), dto);
 
                     // 提取图片链接
@@ -185,7 +210,7 @@ public class HttpClientExample {
     private static String read(String fileName){
         try {
             if (StringUtils.isEmpty(fileName)) {
-                fileName = "web1的副本.txt";
+                fileName = "web.txt";
             }else {
                 fileName = fileName+".html";
             }

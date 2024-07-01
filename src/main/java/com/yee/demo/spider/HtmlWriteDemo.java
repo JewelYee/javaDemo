@@ -16,15 +16,11 @@ import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author yee
@@ -32,19 +28,17 @@ import java.util.regex.Pattern;
  */
 public class HtmlWriteDemo {
     final static String localUri = "/Users/linyijun/Desktop/spider/";
-
     public static void main(String[] args) {
 //        writeWebJSp();
-        processHtml(read(null));
+        String htmlContent = read(null);
+        processHtml(htmlContent);
+
     }
 
     private static HtmlDetailDTO processDetailUrl(Element td, HtmlDetailDTO dto){
         if (td.select("a").size() > 0) {
             Element a = td.select("a").first();
             String onclick = a.attr("onclick");
-//            int startIndex = onclick.indexOf("window.open('") + "window.open('".length();
-//            int endIndex = onclick.indexOf("'", startIndex);
-//            if (startIndex != -1 && endIndex != -1) {
             String httpUrl = StrUtil.split(StrUtil.replace(onclick,"\"","'"),"'").get(1);
             String httpGetUrl = httpUrl.replace("../../jsp", "https://webapps.condusef.gob.mx/SIPRES/jsp");
             if(httpGetUrl.length() == 49){
@@ -58,10 +52,10 @@ public class HtmlWriteDemo {
 
     private static void processHtml(String htmlContent){
         List<HtmlDetailDTO> list = Lists.newArrayList();
-        // 使用Jsoup解析HTML内容
+
         Document doc = Jsoup.parse(htmlContent);
         Elements trs = doc.select("table tr");
-        for (Element tr : trs) {
+        trs.stream().forEach(tr ->{
             HtmlDetailDTO dto = new HtmlDetailDTO();
             Elements tds = tr.select("td");
             for (int i = 0; i < tds.size(); i++) {
@@ -74,6 +68,7 @@ public class HtmlWriteDemo {
                     text = td.nextElementSibling().wholeText();
                 }
                 if (i==0){
+                    System.out.println(text);
                     dto.setClave_de_Registro(text);
                 }
                 else if (i==1){
@@ -102,10 +97,11 @@ public class HtmlWriteDemo {
                 }
             }
             list.add(dto);
-            System.out.println("size:"+list.size());
-        }
+            System.out.println(list.size());
+
+        });
         System.out.println("========= 开始写excel =========");
-        EasyExcel.write("/Users/linyijun/Desktop/data_export.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
+        EasyExcel.write("/Users/linyijun/Desktop/data_export1.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
     }
 
 
@@ -114,8 +110,6 @@ public class HtmlWriteDemo {
         try {
             // 使用Jsoup获取HTML文档
             Document document = Jsoup.connect(url).get();
-
-
             Elements rows = document.select("#div_generales .row");
             for (Element row : rows) {
                 // 遍历row元素下的col-sm-*类的div元素
@@ -124,32 +118,19 @@ public class HtmlWriteDemo {
                     // 查找<b>标签并获取其文本内容
                     Element bTag = col.select("b").first();
                     String title = bTag.wholeText();
-                    Element hrTag = col.select("hr").first();
-                    String text="";
-                    if (hrTag != null) {
-                        StringBuilder textAfterHr = new StringBuilder();
-                        for (Node node : hrTag.siblingNodes()) {
-                            if (node instanceof org.jsoup.nodes.TextNode) {
-                                String value = ((TextNode) node).getWholeText().trim();
-                                // 如果节点是TextNode，则获取其文本并去除前后的空白字符
-                                text = textAfterHr.append(value).toString();
-                            }
-                        }
+                    String wholeText = col.wholeText();
+                    String[] split = title.split(" ");
+                    String splitKey = title;
+                    String text = "";
+                    if (split.length > 1) {
+                        splitKey = split[split.length-1];
+
                     }
-                    if (StringUtils.isEmpty(text)&& hrTag!=null){
-                        StringBuilder textAfterHr = new StringBuilder();
-                        Element nextSibling = hrTag.nextElementSibling();
-                        while (nextSibling != null && !(nextSibling.tagName().equals("b") || nextSibling.tagName().equals("hr"))) {
-                            // 累加文本内容，包括子元素的文本
-                            textAfterHr.append(nextSibling.wholeText()).append(" ");
-                            nextSibling = nextSibling.nextElementSibling();
-                        }
-                        text = textAfterHr.toString().trim();
+                    String[] split1 = wholeText.split(splitKey);
+                    if (split1.length > 1){
+                        text = split1[1];
                     }
-                    if (StringUtils.isEmpty(text) && hrTag!=null && hrTag.nextElementSibling()!=null){
-                        text = hrTag.nextElementSibling().wholeText();
-                    }
-                    dto = setValue(title, text, dto);
+                    dto = setValue(title.trim(), text.trim(), dto);
 
                     // 提取图片链接
                     Element imgElement = document.select("#div_generales #divlogo #logoins").first();
@@ -171,17 +152,17 @@ public class HtmlWriteDemo {
             dto.setActualizados_el(text);
         }else if (title.equals("Nombre corto")){
             dto.setNombre_corto(text);
-        }else if (title.trim().equals("Estatus")){
+        }else if (title.equals("Estatus")){
             dto.setDetaialEstatus(text);
-        }else if (title.trim().equalsIgnoreCase("RFC")){
+        }else if (title.equalsIgnoreCase("RFC")){
             dto.setRFC(text);
         }else if (title.contains("Registro")){
             dto.setDetaial_Clave_de_Registro(text);
-        }else if (title.trim().equals("Sector")){
+        }else if (title.equals("Sector")){
             dto.setDetaialSector(text);
-        }else if (title.trim().equals("Supervisora")){
+        }else if (title.equals("Supervisora")){
             dto.setSupervisora(text);
-        }else if (title.trim().equals("Entidad")){
+        }else if (title.equals("Entidad")){
             dto.setEntidad(text);
         }else if (title.contains("Inicio")){
             dto.setInicio_de_operaciones(text);
