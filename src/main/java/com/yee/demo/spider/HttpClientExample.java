@@ -28,8 +28,9 @@ import java.util.List;
  */
 public class HttpClientExample {
 
-    final static String localUri = "/Users/linyijun/Desktop/spider/";
+    final static String localUri = "/Users/linyijun/Desktop/";
     public static void main(String[] args) {
+        writeWebJSp();
         String htmlContent = read(null);
         processHtml(htmlContent);
     }
@@ -95,7 +96,7 @@ public class HttpClientExample {
 
         });
         System.out.println("========= 开始写excel =========");
-        EasyExcel.write("/Users/linyijun/Desktop/data_export_111.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
+        EasyExcel.write("/Users/linyijun/Desktop/data.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
     }
 
 
@@ -112,7 +113,6 @@ public class HttpClientExample {
             if (document == null) {
                 document = Jsoup.connect(url).get();
             }
-
             Elements rows = document.select("#div_generales .row");
             for (Element row : rows) {
                 // 遍历row元素下的col-sm-*类的div元素
@@ -194,7 +194,7 @@ public class HttpClientExample {
             InputStreamReader in=new InputStreamReader(fin,"utf-8"); //获取输入流
             BufferedReader br = new BufferedReader(in);
             char[] buf=new char[fin.available()];
-            br.read(buf); //br的效率更高，带缓冲
+            br.read(buf);
             in.close();
             fin.close();
             return String.valueOf(buf);
