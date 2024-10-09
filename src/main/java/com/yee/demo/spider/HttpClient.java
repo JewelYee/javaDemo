@@ -30,7 +30,7 @@ public class HttpClient {
 
     final static String localUri = "/Users/linyijun/Desktop/";
     public static void main(String[] args) {
-        writeWebJSp();
+//        writeWebJSp();
         String htmlContent = read(null);
         processHtml(htmlContent);
     }
@@ -96,7 +96,7 @@ public class HttpClient {
 
         });
         System.out.println("========= 开始写excel =========");
-        EasyExcel.write("/Users/linyijun/Desktop/data.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
+        EasyExcel.write("/Users/linyijun/Desktop/data2.xlsx").sheet("模板").head(HtmlDetailDTO.class).doWrite(list);
     }
 
 
@@ -185,7 +185,7 @@ public class HttpClient {
     private static String read(String fileName){
         try {
             if (StringUtils.isEmpty(fileName)) {
-                fileName = "web1.txt";
+                fileName = "web2.txt";
             }else {
                 fileName = fileName+".html";
             }
@@ -210,6 +210,7 @@ public class HttpClient {
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("tipo", "1"));
         params.add(new BasicNameValuePair("pnom", "SOFOM"));
+        params.add(new BasicNameValuePair("psta", "60"));
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
@@ -218,7 +219,7 @@ public class HttpClient {
             try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
                 HttpEntity entity = response.getEntity();
                 String htmlContent = EntityUtils.toString(entity, "UTF-8");
-                String filePath = localUri+"/web1.txt";
+                String filePath = localUri+"/web2.txt";
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
                     writer.write(htmlContent);
                     System.out.println("文件写入成功！");
