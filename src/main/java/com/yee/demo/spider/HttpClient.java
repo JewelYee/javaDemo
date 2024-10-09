@@ -26,7 +26,7 @@ import java.util.List;
  * @author yee
  * 2024/6/27 10:47
  */
-public class HttpClientExample {
+public class HttpClient {
 
     final static String localUri = "/Users/linyijun/Desktop/";
     public static void main(String[] args) {
@@ -185,7 +185,7 @@ public class HttpClientExample {
     private static String read(String fileName){
         try {
             if (StringUtils.isEmpty(fileName)) {
-                fileName = "web1的副本.txt";
+                fileName = "web1.txt";
             }else {
                 fileName = fileName+".html";
             }
